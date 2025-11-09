@@ -61,8 +61,12 @@ console.log(createEmployee("$500")); // Director
 
 // 6. Creating functions specific to employees
 // Type predicate: checks if employee is a Director
-function isDirector(employee: Director | Teacher): employee is Director {
-    return (employee as Director).workDirectorTasks !== undefined;
+// function isDirector(employee: Director | Teacher): employee is Director {
+//     return (employee as Director).workDirectorTasks !== undefined;
+// }
+
+export function isDirector(employee: Teacher | Director): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
 }
 
 // Function that executes the correct work based on employee type
